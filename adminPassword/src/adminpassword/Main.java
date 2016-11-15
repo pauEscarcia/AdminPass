@@ -39,9 +39,9 @@ public class Main extends javax.swing.JFrame {
         jPanel1.setInheritsPopupMenu(true);
         jPanel1.setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Locket10_1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LocketO10.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(170, 60, 461, 307);
+        jLabel1.setBounds(170, 37, 480, 330);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgPink.png"))); // NOI18N
         jPanel1.add(jLabel3);
