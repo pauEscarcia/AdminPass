@@ -45,7 +45,7 @@ public class Main extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(218, 116, 116));
         jLabel2.setText("Bienvenid@");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(330, 530, 260, 28);
+        jLabel2.setBounds(330, 530, 260, 30);
 
         jButton1.setBackground(new java.awt.Color(208, 109, 127));
         jButton1.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
