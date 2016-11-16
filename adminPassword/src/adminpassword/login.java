@@ -131,15 +131,15 @@ public class login extends javax.swing.JFrame {
         jPanel2.add(jPanel1);
         jPanel1.setBounds(160, 230, 510, 290);
 
-        jLabel5.setText("jLabel5");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/keyIcon_1.png"))); // NOI18N
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(260, 180, 45, 16);
+        jLabel5.setBounds(330, 150, 20, 50);
 
         jLabel2.setFont(new java.awt.Font("Glamourgirl", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(72, 55, 71));
         jLabel2.setText("Login");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(350, 150, 160, 60);
+        jLabel2.setBounds(370, 150, 160, 60);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/generalBG.png"))); // NOI18N
         jPanel2.add(jLabel1);
