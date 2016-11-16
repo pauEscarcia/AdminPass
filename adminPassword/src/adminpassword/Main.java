@@ -40,15 +40,6 @@ public class Main extends javax.swing.JFrame {
         jPanel1.setInheritsPopupMenu(true);
         jPanel1.setLayout(null);
 
-<<<<<<< HEAD
-=======
-        jLabel2.setFont(new java.awt.Font("Existence Light", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(218, 116, 116));
-        jLabel2.setText("Bienvenid@");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(330, 530, 260, 30);
-
->>>>>>> origin/master
         jButton1.setBackground(new java.awt.Color(208, 109, 127));
         jButton1.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
