@@ -63,23 +63,23 @@ public class Nuevo extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 253, 215));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Añadir nueva entrada.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Existence Light", 0, 14), new java.awt.Color(72, 55, 71))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Existence", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(72, 55, 71));
         jLabel3.setText("Titulo");
 
-        jLabel4.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Existence", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(72, 55, 71));
         jLabel4.setText("Usuario");
 
-        jLabel5.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Existence", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(72, 55, 71));
         jLabel5.setText("Contraseña");
 
-        jLabel6.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Existence", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(72, 55, 71));
         jLabel6.setText("Repetir Contraseña");
 
-        jLabel7.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Existence", 0, 18)); // NOI18N
         jLabel7.setText("URL");
 
         jCheckBox1.setBackground(new java.awt.Color(255, 253, 215));
