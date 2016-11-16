@@ -48,16 +48,16 @@ public class login extends javax.swing.JFrame {
         jPanel2.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 253, 215));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingresa los campos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Existence", 0, 14))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingresa los campos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Existence Light", 0, 14))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(72, 55, 71));
         jPanel1.setFocusable(false);
         jPanel1.setFont(new java.awt.Font("Existence", 0, 18)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Existence", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Existence Light", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(72, 55, 71));
         jLabel3.setText("Password");
 
-        jLabel4.setFont(new java.awt.Font("Existence", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(72, 55, 71));
         jLabel4.setText("Repetir password");
 
@@ -120,7 +120,7 @@ public class login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,7 +133,7 @@ public class login extends javax.swing.JFrame {
 
         jLabel5.setText("jLabel5");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(260, 180, 45, 16);
+        jLabel5.setBounds(260, 180, 34, 14);
 
         jLabel2.setFont(new java.awt.Font("Glamourgirl", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(72, 55, 71));
