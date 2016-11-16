@@ -58,7 +58,6 @@ public class MasterKey extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
         jLabel4.setText("Repite la contraseña");
 
-        jPasswordField1.setText("jPasswordField1");
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -66,6 +65,11 @@ public class MasterKey extends javax.swing.JFrame {
         });
 
         jPasswordField2.setText("jPasswordField2");
+        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField2ActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(208, 109, 127));
         jButton1.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
@@ -248,6 +252,10 @@ public class MasterKey extends javax.swing.JFrame {
             this.jPasswordField2.setEchoChar((char)0);
         }
     }//GEN-LAST:event_jCheckBox1ItemStateChanged
+
+    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField2ActionPerformed
 
     /**
      * @param args the command line arguments
