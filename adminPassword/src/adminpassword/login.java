@@ -75,6 +75,11 @@ public class login extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(72, 55, 71));
         jButton2.setText("Registrarse");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(208, 109, 127));
         jButton3.setFont(new java.awt.Font("Glamourgirl", 0, 14)); // NOI18N
@@ -133,9 +138,7 @@ public class login extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/keyIcon_1.png"))); // NOI18N
         jPanel2.add(jLabel5);
-
         jLabel5.setBounds(330, 150, 20, 50);
-
 
         jLabel2.setFont(new java.awt.Font("Glamourgirl", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(72, 55, 71));
@@ -163,11 +166,25 @@ public class login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Locket l1 = new Locket();
+        l1.setVisible(true);
+        dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        MasterKey m1 = new MasterKey();
+        m1.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        MasterKey m1 = new MasterKey();
+        m1.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

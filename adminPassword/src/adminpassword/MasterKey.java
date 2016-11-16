@@ -5,6 +5,8 @@
  */
 package adminpassword;
 
+import java.awt.event.ItemEvent;
+
 /**
  *
  * @author Exelsion
@@ -57,6 +59,11 @@ public class MasterKey extends javax.swing.JFrame {
         jLabel4.setText("Repite la contraseña");
 
         jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
 
         jPasswordField2.setText("jPasswordField2");
 
@@ -64,6 +71,11 @@ public class MasterKey extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(72, 55, 71));
         jButton1.setText("Generar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(208, 109, 127));
         jButton2.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
@@ -72,15 +84,30 @@ public class MasterKey extends javax.swing.JFrame {
         jButton2.setMaximumSize(new java.awt.Dimension(103, 33));
         jButton2.setMinimumSize(new java.awt.Dimension(103, 33));
         jButton2.setPreferredSize(new java.awt.Dimension(103, 33));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(208, 109, 127));
         jButton3.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
         jButton3.setForeground(new java.awt.Color(72, 55, 71));
         jButton3.setText("Ok !");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jCheckBox1.setBackground(new java.awt.Color(255, 253, 215));
         jCheckBox1.setFont(new java.awt.Font("Existence Light", 0, 11)); // NOI18N
         jCheckBox1.setText("Revelar");
+        jCheckBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBox1ItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -170,15 +197,57 @@ public class MasterKey extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 595, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        login l1 = new login();
+        l1.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        login l1 = new login();
+        l1.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.jPasswordField1.setText("SUPERSAFEPASSWORDOMGWDSAK");
+        this.jPasswordField2.setText("SUPERSAFEPASSWORDOMGWDSAK");
+       
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jCheckBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox1ItemStateChanged
+        // TODO add your handling code here:
+        if (evt.getStateChange() == ItemEvent.SELECTED){
+            this.jPasswordField1.setEchoChar('*');
+        }else{
+            this.jPasswordField1.setEchoChar((char)0);
+        }
+        
+        if (evt.getStateChange() == ItemEvent.SELECTED){
+            this.jPasswordField2.setEchoChar('*');
+        }else{
+            this.jPasswordField2.setEchoChar((char)0);
+        }
+    }//GEN-LAST:event_jCheckBox1ItemStateChanged
 
     /**
      * @param args the command line arguments
