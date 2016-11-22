@@ -53,7 +53,7 @@ public class login extends javax.swing.JFrame {
         jPanel1.setFocusable(false);
         jPanel1.setFont(new java.awt.Font("Existence", 0, 18)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Existence Light", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(72, 55, 71));
         jLabel3.setText("Password");
 

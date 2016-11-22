@@ -73,7 +73,7 @@ public class Locket extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(255, 253, 215));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contraseñas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Existence", 0, 18), new java.awt.Color(72, 55, 71))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contraseñas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ebrima", 0, 18), new java.awt.Color(72, 55, 71))); // NOI18N
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -167,7 +167,7 @@ public class Locket extends javax.swing.JFrame {
                         .addComponent(jButton4)
                         .addComponent(jButton2)
                         .addComponent(jButton1)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);

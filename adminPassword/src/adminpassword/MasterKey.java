@@ -18,6 +18,8 @@ public class MasterKey extends javax.swing.JFrame {
      */
     public MasterKey() {
         initComponents();
+        this.jPasswordField1.setText((""));
+        this.jPasswordField2.setText((""));
     }
 
     /**
@@ -228,8 +230,8 @@ public class MasterKey extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.jPasswordField1.setText("SUPERSAFEPASSWORDOMGWDSAK");
-        this.jPasswordField2.setText("SUPERSAFEPASSWORDOMGWDSAK");
+        this.jPasswordField1.setText("kL9P]K>z*]mJCd");
+        this.jPasswordField2.setText("kL9P]K>z*]mJCd");
        
         
     }//GEN-LAST:event_jButton1ActionPerformed
