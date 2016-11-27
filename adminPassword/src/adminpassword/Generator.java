@@ -5,6 +5,8 @@
  */
 package adminpassword;
 
+import java.security.SecureRandom;
+
 /**
  *
  * @author Exelsion
@@ -40,10 +42,10 @@ public class Generator extends javax.swing.JFrame {
         mayusculasCheck = new javax.swing.JCheckBox();
         passField = new javax.swing.JTextField();
         generarButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 253, 215));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 253, 215));
@@ -74,6 +76,7 @@ public class Generator extends javax.swing.JFrame {
         jPanel2.add(longitudCb, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 43, -1, -1));
 
         simbolosCheck.setBackground(new java.awt.Color(255, 253, 215));
+        simbolosCheck.setSelected(true);
         simbolosCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 simbolosCheckActionPerformed(evt);
@@ -82,12 +85,15 @@ public class Generator extends javax.swing.JFrame {
         jPanel2.add(simbolosCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 69, -1, -1));
 
         numerosCheck.setBackground(new java.awt.Color(255, 253, 215));
+        numerosCheck.setSelected(true);
         jPanel2.add(numerosCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 97, -1, -1));
 
         minusculasCheck.setBackground(new java.awt.Color(255, 253, 215));
+        minusculasCheck.setSelected(true);
         jPanel2.add(minusculasCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 125, -1, -1));
 
         mayusculasCheck.setBackground(new java.awt.Color(255, 253, 215));
+        mayusculasCheck.setSelected(true);
         jPanel2.add(mayusculasCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 153, -1, -1));
 
         passField.setToolTipText("");
@@ -106,11 +112,9 @@ public class Generator extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/generalBG.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
+        jPanel1.setBackground(new java.awt.Color(255, 253, 215));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -122,8 +126,52 @@ public class Generator extends javax.swing.JFrame {
     private void generarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarButtonActionPerformed
         // TODO add your handling code here:
         String charafull = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\\\|;:\\'\\\",<.>/?";
+        String upperC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String lowerC = "abcdefghijklmnopqrstuvwxyz";
+        String numbers = "0123456789";
+        String specialCh = "~`!@#$%^&*()-_=+[{]}\\\\|;:\\'\\\",<.>/?";
         StringBuilder sb = new StringBuilder();
-        //this.passField.setText(charafull);
+        SecureRandom rnd = new SecureRandom();
+        String finalPw; 
+        
+        String noUpper = charafull.replace(upperC, "");
+        String noLower = charafull.replace(lowerC, "");
+        String noNumber = charafull.replace(numbers, "");
+        String noSpecialCh = charafull.replace(specialCh, "");
+        String nolowerUpper = charafull.replace(upperC + lowerC, "");
+        
+        String sum = "";
+    
+        //int passLength = (int)longitudCb.getSelectedItem();
+        String passSs = longitudCb.getSelectedItem().toString();
+        int passLength = Integer.parseInt(passSs);
+        
+        if(simbolosCheck.isSelected()){
+            sum= sum.concat(specialCh);
+        }
+        if(numerosCheck.isSelected()){
+            sum = sum.concat(numbers);
+        }
+        if(mayusculasCheck.isSelected()){
+            sum = sum.concat(upperC);
+        }
+        if(minusculasCheck.isSelected()){
+            sum = sum.concat(lowerC);
+        }
+        for(int i = 0; i<passLength ; i++){
+            sb.append(sum.charAt(rnd.nextInt(sum.length()))); 
+        }
+        /*
+        if (simbolosCheck.isSelected() && numerosCheck.isSelected() && minusculasCheck.isSelected() && mayusculasCheck.isSelected()){
+           for(int i = 0; i<passLength ; i++){
+            sb.append(noUpper.charAt(rnd.nextInt(noUpper.length())));            
+           }
+        }
+        */
+        finalPw = sb.toString();
+        passField.setText(finalPw);
+        //passField.setText(passSs);
+       
     }//GEN-LAST:event_generarButtonActionPerformed
 
     /**
@@ -163,7 +211,6 @@ public class Generator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton generarButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
