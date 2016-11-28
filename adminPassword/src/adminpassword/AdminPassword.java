@@ -14,7 +14,7 @@ import controlador.*;
  * @author pauEscarcia
  */
 public class AdminPassword {
-
+    JFLocket vistaLoc = new JFLocket ();
     /**
      * @param args the command line arguments
      */
@@ -27,10 +27,16 @@ public class AdminPassword {
        // vistaC.setVisible(true);
        // vistaC.setLocationRelativeTo(null);
        
-       JFLocket vistaC = new JFLocket();
-       AlmacenDAO modelC = new AlmacenDAO();
-       ControladorLocket controlaC= new ControladorLocket(vistaC,modelC);
        
+       //JFLocket vistaC = new JFLocket();
+       //AlmacenDAO modelC = new AlmacenDAO();
+       //ControladorLocket controlaC= new ControladorLocket(vistaC,modelC);
+       
+       //vistaC.setVisible(true);
+       //vistaC.setLocationRelativeTo(null);
+       
+       JFInicio vistaC= new JFInicio();
+       ControladorInicio controlaC= new ControladorInicio(vistaC);
        vistaC.setVisible(true);
        vistaC.setLocationRelativeTo(null);
     }
