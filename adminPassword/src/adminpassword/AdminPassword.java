@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package adminpassword;
+import modelo.*;
+import vista.*;
+import controlador.*;
+
 
 /**
  *
@@ -16,7 +20,19 @@ public class AdminPassword {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //asd
+        //JFMasterKey vistaC = new JFMasterKey();
+        //LogDAO modelC= new LogDAO();
+        //ControladorMasterKey controlaC= new ControladorMasterKey(vistaC,modelC);
+        
+       // vistaC.setVisible(true);
+       // vistaC.setLocationRelativeTo(null);
+       
+       JFLocket vistaC = new JFLocket();
+       AlmacenDAO modelC = new AlmacenDAO();
+       ControladorLocket controlaC= new ControladorLocket(vistaC,modelC);
+       
+       vistaC.setVisible(true);
+       vistaC.setLocationRelativeTo(null);
     }
     
 }
