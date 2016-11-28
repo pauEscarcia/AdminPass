@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 package controlador;
+import adminpassword.AESDemo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -18,6 +21,7 @@ import vista.*;
 public class ControladorLocket implements ActionListener {
     JFLocket vistaLoc = new JFLocket ();
     AlmacenDAO modeloLoc = new AlmacenDAO();
+    AESDemo d = new AESDemo();
     
     public ControladorLocket(JFLocket vistaLoc,AlmacenDAO modeloLoc ){
         this.modeloLoc= modeloLoc;
@@ -62,7 +66,7 @@ public class ControladorLocket implements ActionListener {
         }
         if (e.getSource() == vistaLoc.btnNuevo){
             String idKey= "1";
-            String titulo= vistaLoc.txtTitulo.getText();
+            String titulo= vistaLoc.txtTitulo.getText();            
             String usuario= vistaLoc.txtUsuario.getText();
             String pass= vistaLoc.txtPass.getText();
             String pass2= vistaLoc.txtPass2.getText();
@@ -70,7 +74,22 @@ public class ControladorLocket implements ActionListener {
             String expira= vistaLoc.comboExpira.getSelectedItem().toString();
             
             if (pass.equals(pass2)){
-                String rptaRegistro = modeloLoc.insertAlmacen(titulo,usuario,pass,url,expira,idKey);
+                String tituloC = null;
+                String usuarioC = null;
+                String passC = null;
+                String urlC = null;
+                String expiraC = null;
+                
+                try {
+                    tituloC = d.encrypt(titulo);
+                    usuarioC = d.encrypt(usuario);
+                    passC = d.encrypt(pass);
+                    urlC = d.encrypt(url);
+                    expiraC = d.encrypt(expira);
+                } catch (Exception ex) {
+                    Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                String rptaRegistro = modeloLoc.insertAlmacen(tituloC,usuarioC,passC,urlC,expiraC,idKey);
                 //CUANDO OK
                 if (rptaRegistro!= null){
                     JOptionPane.showMessageDialog(null,rptaRegistro);

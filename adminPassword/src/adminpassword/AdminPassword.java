@@ -20,12 +20,14 @@ public class AdminPassword {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //JFMasterKey vistaC = new JFMasterKey();
-        //LogDAO modelC= new LogDAO();
-        //ControladorMasterKey controlaC= new ControladorMasterKey(vistaC,modelC);
+        /*
+       JFMasterKey vistaC = new JFMasterKey();
+       LogDAO modelC= new LogDAO();
+       ControladorMasterKey controlaC= new ControladorMasterKey(vistaC,modelC);
         
-       // vistaC.setVisible(true);
-       // vistaC.setLocationRelativeTo(null);
+       vistaC.setVisible(true);
+       vistaC.setLocationRelativeTo(null);
+       */
        
        
        //JFLocket vistaC = new JFLocket();
@@ -39,6 +41,7 @@ public class AdminPassword {
        ControladorInicio controlaC= new ControladorInicio(vistaC);
        vistaC.setVisible(true);
        vistaC.setLocationRelativeTo(null);
+       
     }
     
 }
