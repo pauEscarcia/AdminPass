@@ -20,7 +20,7 @@ public class JFLogin extends javax.swing.JFrame {
     public JFLogin() {
         initComponents();
         this.txtKeyss.setText((""));
-        this.txtKeyss2.setText((""));
+        //this.txtKeyss2.setText((""));
     }
 
     /**
@@ -35,9 +35,7 @@ public class JFLogin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         txtKeyss = new javax.swing.JPasswordField();
-        txtKeyss2 = new javax.swing.JPasswordField();
         btnCrear = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnOk = new javax.swing.JButton();
@@ -59,19 +57,9 @@ public class JFLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
         jLabel3.setText("Ingresa la contraseña");
 
-        jLabel4.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
-        jLabel4.setText("Repite la contraseña");
-
         txtKeyss.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtKeyssActionPerformed(evt);
-            }
-        });
-
-        txtKeyss2.setText("jPasswordField2");
-        txtKeyss2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtKeyss2ActionPerformed(evt);
             }
         });
 
@@ -123,15 +111,11 @@ public class JFLogin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtKeyss, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                            .addComponent(txtKeyss2))
+                        .addComponent(txtKeyss, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(chboxRevelar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -150,11 +134,7 @@ public class JFLogin extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtKeyss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chboxRevelar))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtKeyss2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnOk, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
                     .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
@@ -251,15 +231,11 @@ public class JFLogin extends javax.swing.JFrame {
         }
         
         if (evt.getStateChange() == ItemEvent.SELECTED){
-            this.txtKeyss2.setEchoChar('*');
+            //this.txtKeyss2.setEchoChar('*');
         }else{
-            this.txtKeyss2.setEchoChar((char)0);
+            //this.txtKeyss2.setEchoChar((char)0);
         }
     }//GEN-LAST:event_chboxRevelarItemStateChanged
-
-    private void txtKeyss2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKeyss2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtKeyss2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,11 +283,9 @@ public class JFLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPasswordField txtKeyss;
-    public javax.swing.JPasswordField txtKeyss2;
     // End of variables declaration//GEN-END:variables
 }

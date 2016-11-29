@@ -79,7 +79,7 @@ public class JFLocket extends javax.swing.JFrame {
         jMenu5.setText("Edit");
         jMenuBar2.add(jMenu5);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("locket");
         setBackground(new java.awt.Color(255, 253, 215));
 

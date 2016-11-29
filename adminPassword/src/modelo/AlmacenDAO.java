@@ -40,12 +40,15 @@ public class AlmacenDAO {
         }
         return rptaRegistro;
     }
-    public ArrayList<Almacen> listAlmacen(){
+    
+    
+    public ArrayList<Almacen> listAlmacen(String idKey){
         ArrayList listaAlmancen = new ArrayList();
         Almacen alm ;
         try{
             Connection acceBD= conexion.getConexion();
-            PreparedStatement ps= acceBD.prepareStatement("select * from almacen");
+            PreparedStatement ps= acceBD.prepareStatement("SELECT * FROM almacen WHERE idKey = ? ");
+            ps.setString(1, idKey);
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
                 alm = new Almacen();

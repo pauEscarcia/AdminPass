@@ -30,12 +30,18 @@ public class AdminPassword {
        */
        
        
-       //JFLocket vistaC = new JFLocket();
-       //AlmacenDAO modelC = new AlmacenDAO();
-       //ControladorLocket controlaC= new ControladorLocket(vistaC,modelC);
+       /*JFLocket vistaC = new JFLocket();
+       AlmacenDAO modelC = new AlmacenDAO();
+       ControladorLocket controlaC= new ControladorLocket(vistaC,modelC);
        
-       //vistaC.setVisible(true);
-       //vistaC.setLocationRelativeTo(null);
+       vistaC.setVisible(true);
+       vistaC.setLocationRelativeTo(null);*/
+       
+       
+       
+       
+       
+       
        
        JFInicio vistaC= new JFInicio();
        ControladorInicio controlaC= new ControladorInicio(vistaC);

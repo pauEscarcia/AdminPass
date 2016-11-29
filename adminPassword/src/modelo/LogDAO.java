@@ -35,6 +35,27 @@ public class LogDAO {
         }
         return rptaRegistro;
     }
+    
+    public ArrayList<Log> listLogMasterKey(String masterKey){
+        ArrayList listaLog = new ArrayList();
+        Log log ;
+        try{
+            Connection acceBD= conexion.getConexion();
+            
+            PreparedStatement ps= acceBD.prepareStatement("SELECT idKey FROM log WHERE keyss = ?  ");
+            ps.setString(1, masterKey);
+            ResultSet rs= ps.executeQuery();
+            while(rs.next()){
+                log = new Log();
+                log.setIdKey(rs.getInt(1));
+                listaLog.add(log);
+                
+            }
+        }catch(Exception e){
+        
+        }
+        return listaLog;
+    }
     public ArrayList<Log> listLog(){
         ArrayList listaLog = new ArrayList();
         Log log ;
