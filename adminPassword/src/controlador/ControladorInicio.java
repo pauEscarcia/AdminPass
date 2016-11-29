@@ -27,7 +27,7 @@ public class ControladorInicio implements ActionListener{
     }
     
     public void actionPerformed(ActionEvent e) {
-       if (e.getSource() == vistaLoc.btnBienvenido){
+       if (e.getSource() == vistaLoc.btnBienvenido){  
            JFLogin vistaC = new JFLogin();
            ControladorLogin controlaC= new ControladorLogin(vistaC);
            vistaC.setVisible(true);

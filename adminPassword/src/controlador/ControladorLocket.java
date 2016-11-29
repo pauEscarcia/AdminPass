@@ -5,6 +5,10 @@
  */
 package controlador;
 import adminpassword.AESDemo;
+import java.awt.Component;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
@@ -30,6 +34,7 @@ public class ControladorLocket implements ActionListener {
         this.vistaLoc = vistaLoc;
         this.vistaLoc.btnNuevo.addActionListener(this);
         this.vistaLoc.btnListar.addActionListener(this);
+        this.vistaLoc.btnCopiar.addActionListener(this);
         this.idKey = idKey;
     }
      public void ControladorLocket(){
@@ -55,15 +60,23 @@ public class ControladorLocket implements ActionListener {
             columna[2]= modeloLoc.listAlmacen(idKey).get(i).getPass();
             columna[3]= modeloLoc.listAlmacen(idKey).get(i).getUrl();
             columna[4]= modeloLoc.listAlmacen(idKey).get(i).getExpira();
-            modelT.addRow(columna);
-            
-            
+            modelT.addRow(columna);          
         }
-        
-        
+ 
+    }
+    
+    public void Copiar(){
+        //StringSelection stringSelection = new StringSelection (Nuevo.contra);
+        Clipboard clpbrd = Toolkit.getDefaultToolkit ().getSystemClipboard ();
+        //clpbrd.setContents (stringSelection, null);
+        Component frame = null;
+        JOptionPane.showMessageDialog(frame, "¡Contraseña copiada al portapapeles! ");
     }
      
      public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == vistaLoc.btnCopiar){
+            
+        }
         if (e.getSource() == vistaLoc.btnListar){
             LlenarTabla(vistaLoc.tabla);
         }
@@ -95,10 +108,8 @@ public class ControladorLocket implements ActionListener {
                     Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 String rptaRegistro = modeloLoc.insertAlmacen(tituloC,usuarioC,passC,urlC,expiraC,idKey);
-                //CUANDO OK
                 if (rptaRegistro!= null){
                     JOptionPane.showMessageDialog(null,rptaRegistro);
-                    //FALTA ENVIARLO A LOCKET
                 }else {
                     JOptionPane.showMessageDialog(null,"Error de Registro");
                 }

@@ -31,18 +31,13 @@ public class ControladorLogin implements ActionListener {
     public ControladorLogin(){
     
     }
-
-    
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == vistaLoc.btnOk){
-            String masterkeyInput = vistaLoc.txtKeyss.getText();
-            
-            int numRegistros = modeloLoc.listLogMasterKey(masterkeyInput).size();
+    public void ValidarMasterKey(String masterKeyInput){
+           int numRegistros = modeloLoc.listLogMasterKey(masterKeyInput).size();
            //trae los registros que estan dados de alta con esta masterkey 
            //que pasa si esa masterkey esta dada de alta muchas veces, que solo traiga la ultima vez que la registro 
            if(numRegistros>1){
                //System.out.println( "ultimo registro de contraseña multiple:"+modeloLoc.listLogMasterKey(masterkeyInput).get(numRegistros-1).getIdKey());
-               idKey= modeloLoc.listLogMasterKey(masterkeyInput).get(numRegistros-1).getIdKey().toString();
+               idKey= modeloLoc.listLogMasterKey(masterKeyInput).get(numRegistros-1).getIdKey().toString();
                //abrir locket
                JFLocket vistaC = new JFLocket();
                AlmacenDAO modelC = new AlmacenDAO();
@@ -58,7 +53,7 @@ public class ControladorLogin implements ActionListener {
            
            if (numRegistros==1){
                //System.out.println("LA CLAVE ES CORRECTA");
-               idKey= modeloLoc.listLogMasterKey(masterkeyInput).get(numRegistros-1).getIdKey().toString();
+               idKey= modeloLoc.listLogMasterKey(masterKeyInput).get(numRegistros-1).getIdKey().toString();
                //abrir locket
                JFLocket vistaC = new JFLocket();
                AlmacenDAO modelC = new AlmacenDAO();
@@ -68,6 +63,14 @@ public class ControladorLogin implements ActionListener {
            
            }
          
+    
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == vistaLoc.btnOk){
+            String masterKeyInput = vistaLoc.txtKeyss.getText();
+            ValidarMasterKey( masterKeyInput);
+            
            
         }
         if (e.getSource() == vistaLoc.btnCrear){

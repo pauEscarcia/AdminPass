@@ -20,6 +20,9 @@ public class ControladorMasterKey implements ActionListener {
 
     JFMasterKey vistaMK = new JFMasterKey ();
     LogDAO modeloMK = new LogDAO();
+    JFLocket vistaC = new JFLocket();
+    AlmacenDAO modelC = new AlmacenDAO();
+    ControladorLogin controladorLogin = new ControladorLogin();
     
     public ControladorMasterKey(JFMasterKey vistaMK,LogDAO modeloMK ){
         this.modeloMK= modeloMK;
@@ -38,14 +41,15 @@ public class ControladorMasterKey implements ActionListener {
             String keyss2= vistaMK.txtKeyss2.getText();
             
             if (keyss.equals(keyss2)){
-                String rptaRegistro = modeloMK.insertLog(keyss);
                 if(keyss.isEmpty()){
                     JOptionPane.showMessageDialog(null,"Ingresa la contraseña");
-                }else
-                {
+                }else{
+                    String rptaRegistro = modeloMK.insertLog(keyss);
                     if (rptaRegistro!= null){
                         JOptionPane.showMessageDialog(null,rptaRegistro);
                         //FALTA ENVIARLO A LOCKET
+                        controladorLogin.ValidarMasterKey(keyss);
+                        
                     }else {
                         JOptionPane.showMessageDialog(null,"Error de Registro");
                     }
