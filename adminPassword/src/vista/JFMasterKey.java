@@ -225,8 +225,8 @@ public class JFMasterKey extends javax.swing.JFrame {
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         // TODO add your handling code here:
-        this.txtKeyss.setText("kL9P]K>z*]mJCd");
-        this.txtKeyss2.setText("kL9P]K>z*]mJCd");
+        //this.txtKeyss.setText("kL9P]K>z*]mJCd");
+        //this.txtKeyss2.setText("kL9P]K>z*]mJCd");
        
         
     }//GEN-LAST:event_btnGenerarActionPerformed

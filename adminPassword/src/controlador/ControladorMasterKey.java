@@ -25,6 +25,7 @@ public class ControladorMasterKey implements ActionListener {
         this.modeloMK= modeloMK;
         this.vistaMK = vistaMK;
         this.vistaMK.btnOk.addActionListener(this);
+        this.vistaMK.btnGenerar.addActionListener(this);
         
     }
     public void InicializarMK(){
@@ -38,16 +39,27 @@ public class ControladorMasterKey implements ActionListener {
             
             if (keyss.equals(keyss2)){
                 String rptaRegistro = modeloMK.insertLog(keyss);
-                //CUANDO OK
-                if (rptaRegistro!= null){
-                    JOptionPane.showMessageDialog(null,rptaRegistro);
-                    //FALTA ENVIARLO A LOCKET
-                }else {
-                    JOptionPane.showMessageDialog(null,"Error de Registro");
+                if(keyss.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Ingresa la contraseña");
+                }else
+                {
+                    if (rptaRegistro!= null){
+                        JOptionPane.showMessageDialog(null,rptaRegistro);
+                        //FALTA ENVIARLO A LOCKET
+                    }else {
+                        JOptionPane.showMessageDialog(null,"Error de Registro");
+                    }
                 }
             }else {
-                JOptionPane.showMessageDialog(null, "¡Las contraseñas no son iguales ");
+                JOptionPane.showMessageDialog(null, "Las contraseñas no son iguales ");
             }
+        }
+        if (e.getSource() == vistaMK.btnGenerar){
+            System.out.println("GENERAR");
+            JFGenerator vistaC= new JFGenerator();
+            ControladorGenerator controlaC= new ControladorGenerator(vistaC);
+            vistaC.setVisible(true);
+            //vistaC.setLocationRelativeTo(null);
         }
        
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
