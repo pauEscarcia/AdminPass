@@ -70,11 +70,9 @@ public class ControladorLogin implements ActionListener {
                vistaC.setLocationRelativeTo(null);
            
            }
-         
-    
     }
     
-    public void ValidarMasterKeyDesencriptar(String masterKeyInputTxt){ //eje: 13 
+    public void ValidarMasterKeyDesencriptar(String masterKeyInputTxt){ 
            ArrayList<String> listDesencriptada = new ArrayList<>();
            ArrayList<Integer> encontrado = new ArrayList<>();
            //realiza un select cuando masterkeyInput es igual a keyss (Encriptado)
@@ -108,57 +106,37 @@ public class ControladorLogin implements ActionListener {
                
                for (int i = 0; i < encontrado.size(); i++) {
                    System.out.println("encontrado"+encontrado.get(i));  
-                  
+                   posicion=i;     
                }
                
-               
-               if(encontrado.size()>=1){
-                   System.out.println("encontrado final:"+encontrado.size());
-                   System.out.println("yyaaa"+modeloLoc.listLog().get(encontrado.size()+1).getKey());
+               if(encontrado.size()>1){
+                   //System.out.println("posicion i  lista encontrado "+posicion);
+                   //System.out.println("encontado posicion id key" +encontrado.get(posicion));
+                   String llaveEncriptada= modeloLoc.listLog().get(encontrado.get(posicion)).getKey();
+                   System.out.println("key encontrada encontrada"+llaveEncriptada);
                    JFLocket vistaC = new JFLocket();
                    AlmacenDAO modelC = new AlmacenDAO();
-                   ControladorLocket controlaC= new ControladorLocket(vistaC,modelC,modeloLoc.listLog().get(encontrado.size()+1).getKey());
+                   ControladorLocket controlaC= new ControladorLocket(vistaC,modelC,llaveEncriptada);
                    vistaC.setVisible(true);
                    vistaC.setLocationRelativeTo(null);
                }
-               
-               
-               
-                
-           /*
-           int numRegistros = modeloLoc.listLogMasterKey(masterKeyInputTxt).size();
-           //trae los registros que estan dados de alta con esta masterkey 
-           //que pasa si esa masterkey esta dada de alta muchas veces, que solo traiga la ultima vez que la registro 
-           // si existen elementos en la bd 
-           if(numRegistros>1){
-               //System.out.println( "ultimo registro de contraseña multiple:"+modeloLoc.listLogMasterKey(masterkeyInput).get(numRegistros-1).getIdKey());
-               idKey= modeloLoc.listLogMasterKey(masterKeyInput).get(numRegistros-1).getIdKey().toString();
-               //abrir locket
-               JFLocket vistaC = new JFLocket();
-               AlmacenDAO modelC = new AlmacenDAO();
-               ControladorLocket controlaC= new ControladorLocket(vistaC,modelC,masterKeyInput);
-               vistaC.setVisible(true);
-               vistaC.setLocationRelativeTo(null);
-           }// sino
-           if(numRegistros==0){
-               JOptionPane.showMessageDialog(null, "Contraseña Incorrecta ",
-  "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+              if(encontrado.size()==1){
+                  //System.out.println("posicion i lista encontrado: " +posicion);
+                  //System.out.println("encontado posicion id key" +encontrado.get(posicion));
+                  //System.out.println("key encontrada"+modeloLoc.listLog().get(encontrado.get(posicion)).getKey());
+                  String llaveEncriptada =modeloLoc.listLog().get(encontrado.get(posicion)).getKey();
+                  System.out.println("key encontrada encriptada: " +llaveEncriptada);
+             
+                  JFLocket vistaC = new JFLocket();
+                  AlmacenDAO modelC = new AlmacenDAO();
+                  ControladorLocket controlaC= new ControladorLocket(vistaC,modelC,llaveEncriptada);
+                  vistaC.setVisible(true);
+                  vistaC.setLocationRelativeTo(null);
+              }
+               if(encontrado.size()==0){
+                    JOptionPane.showMessageDialog(null, "Contraseña Incorrecta ", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
 
-           }
-           // si solo es un registro 
-           if (numRegistros==1){
-               //System.out.println("LA CLAVE ES CORRECTA");
-               idKey= modeloLoc.listLogMasterKey(masterKeyInput).get(numRegistros-1).getIdKey().toString();
-               //abrir locket
-               JFLocket vistaC = new JFLocket();
-               AlmacenDAO modelC = new AlmacenDAO();
-               ControladorLocket controlaC= new ControladorLocket(vistaC,modelC,masterKeyInput);
-               vistaC.setVisible(true);
-               vistaC.setLocationRelativeTo(null);
-           
-           }*/
-         
-    
+               }      
     }
 
     public void actionPerformed(ActionEvent e) {
