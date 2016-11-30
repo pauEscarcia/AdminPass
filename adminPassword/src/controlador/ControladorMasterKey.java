@@ -28,6 +28,7 @@ public class ControladorMasterKey implements ActionListener {
     Encryption en = new Encryption();
     ControladorLogin controladorLogin = new ControladorLogin();
     
+        
     public ControladorMasterKey(JFMasterKey vistaMK,LogDAO modeloMK ){
         this.modeloMK= modeloMK;
         this.vistaMK = vistaMK;
