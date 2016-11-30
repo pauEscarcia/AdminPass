@@ -112,7 +112,7 @@ public class ControladorLogin implements ActionListener {
                }
                
                
-               if(encontrado.size()>1){
+               if(encontrado.size()>=1){
                    System.out.println("encontrado final:"+encontrado.size());
                    System.out.println("yyaaa"+modeloLoc.listLog().get(encontrado.size()+1).getKey());
                    JFLocket vistaC = new JFLocket();
@@ -120,10 +120,9 @@ public class ControladorLogin implements ActionListener {
                    ControladorLocket controlaC= new ControladorLocket(vistaC,modelC,modeloLoc.listLog().get(encontrado.size()+1).getKey());
                    vistaC.setVisible(true);
                    vistaC.setLocationRelativeTo(null);
-               }else{
-                
-               
                }
+               
+               
                
                 
            /*
