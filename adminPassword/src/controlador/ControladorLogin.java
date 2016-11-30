@@ -26,7 +26,7 @@ public class ControladorLogin implements ActionListener {
     JFLogin vistaLoc = new JFLogin ();   
     LogDAO modeloLoc = new LogDAO();
     Decryption decrypt = new Decryption();
-    String idKey;
+    String idKey = null;
     
     public ControladorLogin (JFLogin vistaLoc){
         this.vistaLoc = vistaLoc;
@@ -49,7 +49,7 @@ public class ControladorLogin implements ActionListener {
                //abrir locket
                JFLocket vistaC = new JFLocket();
                AlmacenDAO modelC = new AlmacenDAO();
-               ControladorLocket controlaC= new ControladorLocket(vistaC,modelC,masterKeyInput);
+               ControladorLocket controlaC= new ControladorLocket(vistaC,modelC,idKey);
                vistaC.setVisible(true);
                vistaC.setLocationRelativeTo(null);
            }
@@ -61,13 +61,13 @@ public class ControladorLogin implements ActionListener {
            
            if (numRegistros==1){
                //System.out.println("LA CLAVE ES CORRECTA");
-               System.out.println("Master Key input ==1 " + masterKeyInput);
+               System.out.println("Master Key input ==1 " + idKey);
                idKey= modeloLoc.listLogMasterKey(masterKeyInput).get(numRegistros-1).getIdKey().toString();
                System.out.println("idKey  registros ==1 :" + idKey);
                //abrir locket
                JFLocket vistaC = new JFLocket();
                AlmacenDAO modelC = new AlmacenDAO();
-               ControladorLocket controlaC= new ControladorLocket(vistaC,modelC,masterKeyInput);
+               ControladorLocket controlaC= new ControladorLocket(vistaC,modelC,idKey);
                vistaC.setVisible(true);
                vistaC.setLocationRelativeTo(null);
            
@@ -121,7 +121,8 @@ public class ControladorLogin implements ActionListener {
         if (e.getSource() == vistaLoc.btnOk){
             String masterKeyInput = vistaLoc.txtKeyss.getText();
             try {
-                ValidarMasterKeyDecifrado(masterKeyInput);
+                String masterKeyDecrypt = decrypt.decrypt(masterKeyInput, idKey);
+                ValidarMasterKey(masterKeyDecrypt);
             } catch (Exception ex) {
                 Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
             }
