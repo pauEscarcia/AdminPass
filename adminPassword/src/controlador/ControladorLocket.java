@@ -98,15 +98,15 @@ public class ControladorLocket implements ActionListener {
         JOptionPane.showMessageDialog(frame, "¡Contraseña copiada al portapapeles! ");
     }
      
-    public int  validarEdicion(String titulo,String usuario, String pass, String pass2, String url, String expira){
+    public int  validarEdicion(String titulo,String usuario, String pass, String url, String expira){
         int validador;
         System.out.println("titulo"+titulo);
         System.out.println("usuario"+usuario);
         System.out.println("pass"+pass);
-        System.out.println("pass2"+pass2);
+        //System.out.println("pass2"+pass2);
         System.out.println("url"+url);
         System.out.println("expira"+expira);
-        if(titulo.isEmpty() && usuario.isEmpty() && pass.isEmpty()&&pass2.isEmpty()&& url.isEmpty()&&expira.isEmpty())
+        if(titulo.isEmpty() && usuario.isEmpty() && pass.isEmpty()&& url.isEmpty()&&expira.isEmpty())
         {
             JOptionPane.showMessageDialog(null,"Error! Ingresa valores ");
            validador=1;
@@ -114,19 +114,21 @@ public class ControladorLocket implements ActionListener {
         else {
             validador=0;
         }
-        if(pass.isEmpty()&&pass2.isEmpty()){
+        if(pass.isEmpty()){
             JOptionPane.showMessageDialog(null,"Error! Password no puede ser nulo");
             validador = 1;
             
         }else{
              validador=0;
         }
+        /*
         if(!pass.equals(pass2)){
             JOptionPane.showMessageDialog(null,"Error! Ingresa los password correctamente");
             validador = 1;
         }else{
             validador = 0;
         }
+        */
         
         return validador;
     }
@@ -200,19 +202,33 @@ public class ControladorLocket implements ActionListener {
         }
        
         if (e.getSource() == vistaLoc.btnOk){
-            String titulo= vistaLoc.txtTitulo.getText();            
-            String usuario= vistaLoc.txtUsuario.getText();
-            String pass= vistaLoc.txtPass.getText();
-            String pass2= vistaLoc.txtPass2.getText();
-            String url= vistaLoc.txtURL.getText();
-            String expira= vistaLoc.comboExpira.getSelectedItem().toString();
+            String titulo = null;
+            String usuario = null;
+            String pass = null;
+            String passNoCipher = null;
+            String pass2 = null;
+            String url = null;
+            String expira = null;
+            
+            try {
+                titulo = en.encrypt(vistaLoc.txtTitulo.getText(), idKey);
+                usuario = en.encrypt(vistaLoc.txtUsuario.getText(), idKey);
+                pass = en.encrypt(vistaLoc.txtPass.getText(), idKey);
+                url = en.encrypt(vistaLoc.txtURL.getText(), idKey);
+                expira = en.encrypt(vistaLoc.comboExpira.getSelectedItem().toString(), idKey);
+                
+            } catch (Exception ex) {
+                Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
+            }
             int idAlmacen=   (int) vistaLoc.tabla.getValueAt(filaEditar, 5);
+            pass2 = vistaLoc.txtPass2.getText();
+            passNoCipher = vistaLoc.txtPass.getText();
             
 
             int rptEdit = modeloLoc.editAlmacen(idAlmacen,titulo, usuario, pass, url, expira,idKey);
             if(rptEdit>0){
                 LimpiarCampos();
-                int validacion = validarEdicion(titulo, usuario, pass ,pass2, url, expira);
+                int validacion = validarEdicion(titulo, usuario, pass, url, expira);
                 System.out.println("validacion"+validacion);
                 if(validacion==0){   
                      JOptionPane.showMessageDialog(null, "Edicion exitosa.");
