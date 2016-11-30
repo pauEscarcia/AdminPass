@@ -28,6 +28,7 @@ public class ControladorMasterKey implements ActionListener {
     Encryption en = new Encryption();
     ControladorLogin controladorLogin = new ControladorLogin();
     
+        
     public ControladorMasterKey(JFMasterKey vistaMK,LogDAO modeloMK ){
         this.modeloMK= modeloMK;
         this.vistaMK = vistaMK;
@@ -50,8 +51,7 @@ public class ControladorMasterKey implements ActionListener {
                     JOptionPane.showMessageDialog(null,"Ingresa la contraseña");
                 }else{
                     try {
-                        cKeyss = en.encrypt(keyss, keyss);
-                        //System.out.println(cKeyss);
+                        cKeyss = en.encrypt(keyss,"Hola");
                     } catch (Exception ex) {
                         Logger.getLogger(ControladorMasterKey.class.getName()).log(Level.SEVERE, null, ex);
                     }
