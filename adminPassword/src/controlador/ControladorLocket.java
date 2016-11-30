@@ -198,12 +198,14 @@ public class ControladorLocket implements ActionListener {
             if(rptEdit>0){
                 LimpiarCampos();
                 int validacion = validarEdicion(titulo, usuario, pass ,pass2, url, expira);
+                System.out.println("validacion"+validacion);
                 if(validacion==0){   
                      JOptionPane.showMessageDialog(null, "Edicion exitosa.");
                      LlenarTabla(vistaLoc.tabla);
                 
                 }else {
-                    JOptionPane.showMessageDialog(null,"Error! Ingresa la contraseña correctamente");
+                    //JOptionPane.showMessageDialog(null,"Error! Ingresa la contraseña correctamente");
+                    System.out.println("Error");
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "No se pudo realizar edicion.");
