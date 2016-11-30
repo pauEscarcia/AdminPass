@@ -67,4 +67,48 @@ public class AlmacenDAO {
         return listaAlmancen;
     }
     
+    public int editAlmacen(Integer idAlmacen,String titulo, String usuario, String pass,String url, String expira, String idKey){
+        int filAfectadas=0;
+        try {
+            Connection accesoDB = conexion.getConexion();
+            CallableStatement cs = accesoDB.prepareCall("{call sp_editAlmacen(?,?,?,?,?,?,?)}");
+            cs.setInt(1, idAlmacen);
+            cs.setString(2, titulo);
+            cs.setString(3, usuario);
+            cs.setString(4, pass);
+            cs.setString(5, url);
+            cs.setString(6, expira);
+            cs.setString(7, idKey);
+            
+            filAfectadas = cs.executeUpdate();
+        } catch (Exception e) {
+        }
+        return filAfectadas;  
+    }
+    public void deleteAlmacen(Integer idAlmacen){
+        try{
+            Connection acceBD= conexion.getConexion();
+            PreparedStatement ps= acceBD.prepareStatement("DELETE FROM almacen WHERE idAlmacen = ? ");
+            ps.setInt(1, idAlmacen);
+            int count = ps.executeUpdate();
+            System.out.println("Borrado: "+count);
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    /*public int deleteAlmacen(Integer idAlmacen){
+        int filAfectadas= 0;
+        try {
+            Connection accesoDB = conexion.getConexion();
+            CallableStatement cs = accesoDB.prepareCall("{call sp_deleteAlmacen(?)}");
+            cs.setInt(1, idAlmacen);
+            filAfectadas = cs.executeUpdate();
+        } catch (Exception e) {
+        }
+        
+        return filAfectadas;
+    }*/
+    
 }
