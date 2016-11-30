@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import adminpassword.Encryption;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -19,7 +20,7 @@ import vista.JFMasterKey;
  * @author pauEscarcia
  */
 public class ControladorLogin implements ActionListener {
-    JFLogin vistaLoc = new JFLogin ();
+    JFLogin vistaLoc = new JFLogin ();   
     LogDAO modeloLoc = new LogDAO();
     String idKey;
     

@@ -5,12 +5,15 @@
  */
 package controlador;
 import adminpassword.AESDemo;
+import adminpassword.Decryption;
+import adminpassword.Encryption;
 import java.awt.Component;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.lang.System.console;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +31,8 @@ public class ControladorLocket implements ActionListener {
     AlmacenDAO modeloLoc = new AlmacenDAO();
     ControladorLogin controladorLogin = new ControladorLogin();
     AESDemo d = new AESDemo();
+    Encryption en=new Encryption();
+    Decryption de =new Decryption(); 
     String idKey;
     int filaEditar;
     
@@ -47,7 +52,9 @@ public class ControladorLocket implements ActionListener {
     }
      
      
-    public void LlenarTabla(JTable tablaD){
+    public void LlenarTabla(JTable tablaD) throws Exception{
+        //String tituloD = modeloLoc.listAlmacen(idKey).get(i).getTitulo();
+        
         DefaultTableModel modelT = new DefaultTableModel();
         tablaD.setModel(modelT);
         
@@ -63,12 +70,13 @@ public class ControladorLocket implements ActionListener {
         int numRegistros = modeloLoc.listAlmacen(idKey).size();
         
         for (int i = 0; i < numRegistros; i++) {
-           
-            columna[0]= modeloLoc.listAlmacen(idKey).get(i).getTitulo();
-            columna[1]= modeloLoc.listAlmacen(idKey).get(i).getUsuario();
+            columna[0]= de.decrypt(modeloLoc.listAlmacen(idKey).get(i).getTitulo(),idKey);
+            System.out.println("id Key is : " + idKey);
+            columna[1]= de.decrypt(modeloLoc.listAlmacen(idKey).get(i).getUsuario(),idKey);
+            System.out.println("id Key is : " + idKey);
             columna[2]= modeloLoc.listAlmacen(idKey).get(i).getPass();
-            columna[3]= modeloLoc.listAlmacen(idKey).get(i).getUrl();
-            columna[4]= modeloLoc.listAlmacen(idKey).get(i).getExpira();
+            columna[3]= de.decrypt(modeloLoc.listAlmacen(idKey).get(i).getUrl(),idKey);
+            columna[4]= de.decrypt(modeloLoc.listAlmacen(idKey).get(i).getExpira(),idKey);
             columna[5]= modeloLoc.listAlmacen(idKey).get(i).getIdAlmacen();
             modelT.addRow(columna);          
         }
@@ -83,10 +91,10 @@ public class ControladorLocket implements ActionListener {
         vistaLoc.txtURL.setText("");
     }
     
-    public void Copiar(){
-        //StringSelection stringSelection = new StringSelection (Nuevo.contra);
+    public void Copiar(String seleccion) throws Exception{
+        StringSelection stringSelection = new StringSelection (de.decrypt(seleccion,idKey));
         Clipboard clpbrd = Toolkit.getDefaultToolkit ().getSystemClipboard ();
-        //clpbrd.setContents (stringSelection, null);
+        clpbrd.setContents (stringSelection, null);
         Component frame = null;
         JOptionPane.showMessageDialog(frame, "¡Contraseña copiada al portapapeles! ");
     }
@@ -100,8 +108,9 @@ public class ControladorLocket implements ActionListener {
             String pass2= vistaLoc.txtPass2.getText();
             String url= vistaLoc.txtURL.getText();
             String expira= vistaLoc.comboExpira.getSelectedItem().toString();
+            //String idkey = idKey;            
             
-            System.out.println(idKey);
+            //System.out.println(idKey);
             
             if (pass.equals(pass2)){
                 String tituloC = null;
@@ -109,13 +118,15 @@ public class ControladorLocket implements ActionListener {
                 String passC = null;
                 String urlC = null;
                 String expiraC = null;
+                //String idKeyC = null;
                 
                 try {
-                    tituloC = d.encrypt(titulo);
-                    usuarioC = d.encrypt(usuario);
-                    passC = d.encrypt(pass);
-                    urlC = d.encrypt(url);
-                    expiraC = d.encrypt(expira);
+                    tituloC = en.encrypt(titulo,idKey);
+                    usuarioC = en.encrypt(usuario,idKey);
+                    passC = en.encrypt(pass,idKey);
+                    urlC = en.encrypt(url,idKey);
+                    expiraC = en.encrypt(expira,idKey);
+                    //idKeyC = en.encrypt(idkey, idKey);
                 } catch (Exception ex) {
                     Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -131,7 +142,11 @@ public class ControladorLocket implements ActionListener {
         }
         
          if (e.getSource() == vistaLoc.btnListar){
-            LlenarTabla(vistaLoc.tabla);
+            try {
+                LlenarTabla(vistaLoc.tabla);
+            } catch (Exception ex) {
+                Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
          if(e.getSource() == vistaLoc.btnEditar){
             
@@ -174,7 +189,11 @@ public class ControladorLocket implements ActionListener {
             if(rptEdit>0){
                 LimpiarCampos();
                 JOptionPane.showMessageDialog(null, "Edicion exitosa.");
-                LlenarTabla(vistaLoc.tabla);
+                try {
+                    LlenarTabla(vistaLoc.tabla);
+                } catch (Exception ex) {
+                    Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }else{
                 JOptionPane.showMessageDialog(null, "No se pudo realizar edicion.");
             }
@@ -203,13 +222,45 @@ public class ControladorLocket implements ActionListener {
                         System.out.println("Elementos a borrar: " + listaKey.get(j));
                     }
                 }
-                LlenarTabla(vistaLoc.tabla);
+                try {
+                    LlenarTabla(vistaLoc.tabla);
+                } catch (Exception ex) {
+                    Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }else{
                 JOptionPane.showMessageDialog(null, "Elija al menos un registro para eliminar.");
             }
         }
         
         if (e.getSource() == vistaLoc.btnCopiar){
+            int filInicio = vistaLoc.tabla.getSelectedRow();
+            int numfilas = vistaLoc.tabla.getSelectedRowCount();
+            ArrayList<String> listaKey  = new ArrayList<>();
+            String dni;
+            if(filInicio>=0){
+                for(int i = 0; i<numfilas; i++){
+                    dni = (String) vistaLoc.tabla.getValueAt(i+filInicio, 2);
+                    try {
+                        Copiar(dni);
+                    } catch (Exception ex) {
+                        Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    listaKey.add(i, dni);
+                }
+                /*
+                for(int j = 0; j<numfilas; j++){
+                    int rpta = JOptionPane.showConfirmDialog(null, "Desea visualizar: "+listaKey.get(j)+"? ");
+                    if(rpta==0){
+                        try {                      
+                            Copiar(dni);
+                        } catch (Exception ex) {
+                            Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }*/                
+            }else{
+                JOptionPane.showMessageDialog(null, "Elija al menos un registro para eliminar.");
+            }
             
         }
        

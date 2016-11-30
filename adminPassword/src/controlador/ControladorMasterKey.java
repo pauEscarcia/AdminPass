@@ -5,8 +5,11 @@
  */
 package controlador;
 
+import adminpassword.Encryption;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.*;
 import vista.*;
@@ -22,6 +25,7 @@ public class ControladorMasterKey implements ActionListener {
     LogDAO modeloMK = new LogDAO();
     JFLocket vistaC = new JFLocket();
     AlmacenDAO modelC = new AlmacenDAO();
+    Encryption en = new Encryption();
     ControladorLogin controladorLogin = new ControladorLogin();
     
     public ControladorMasterKey(JFMasterKey vistaMK,LogDAO modeloMK ){
@@ -37,18 +41,23 @@ public class ControladorMasterKey implements ActionListener {
    
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vistaMK.btnOk){
-            String keyss= vistaMK.txtKeyss.getText();
-            String keyss2= vistaMK.txtKeyss2.getText();
+            String keyss = vistaMK.txtKeyss.getText();
+            String keyss2 = vistaMK.txtKeyss2.getText();
+            String cKeyss = null;
             
             if (keyss.equals(keyss2)){
                 if(keyss.isEmpty()){
                     JOptionPane.showMessageDialog(null,"Ingresa la contraseña");
                 }else{
-                    String rptaRegistro = modeloMK.insertLog(keyss);
+                    try {
+                        cKeyss = en.encrypt(keyss, keyss);
+                    } catch (Exception ex) {
+                        Logger.getLogger(ControladorMasterKey.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    String rptaRegistro = modeloMK.insertLog(cKeyss);
                     if (rptaRegistro!= null){
-                        JOptionPane.showMessageDialog(null,rptaRegistro);
-                        //FALTA ENVIARLO A LOCKET
-                        controladorLogin.ValidarMasterKey(keyss);
+                        JOptionPane.showMessageDialog(null,rptaRegistro);                        
+                        controladorLogin.ValidarMasterKey(cKeyss);
                         
                     }else {
                         JOptionPane.showMessageDialog(null,"Error de Registro");
