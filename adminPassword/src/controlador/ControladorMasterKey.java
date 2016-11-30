@@ -51,6 +51,7 @@ public class ControladorMasterKey implements ActionListener {
                 }else{
                     try {
                         cKeyss = en.encrypt(keyss, keyss);
+                        //System.out.println(cKeyss);
                     } catch (Exception ex) {
                         Logger.getLogger(ControladorMasterKey.class.getName()).log(Level.SEVERE, null, ex);
                     }
