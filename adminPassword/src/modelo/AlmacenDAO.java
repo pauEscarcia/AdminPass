@@ -68,22 +68,25 @@ public class AlmacenDAO {
     }
     
     public int editAlmacen(Integer idAlmacen,String titulo, String usuario, String pass,String url, String expira, String idKey){
-        int filAfectadas=0;
+        int filaAfectada=0;
         try {
             Connection accesoDB = conexion.getConexion();
-            CallableStatement cs = accesoDB.prepareCall("{call sp_editAlmacen(?,?,?,?,?,?,?)}");
-            cs.setInt(1, idAlmacen);
-            cs.setString(2, titulo);
-            cs.setString(3, usuario);
-            cs.setString(4, pass);
-            cs.setString(5, url);
-            cs.setString(6, expira);
-            cs.setString(7, idKey);
+            PreparedStatement ps= accesoDB.prepareStatement("UPDATE almacen set titulo = ?, usuario= ?, pass= ?, url=?, expira= ?, idKey= ? where idAlmacen = ?");
+            ps.setString(1, titulo);
+            ps.setString(2, usuario);
+            ps.setString(3, pass);
+            ps.setString(4, url);
+            ps.setString(5, expira);
+            ps.setString(6, idKey);
+            ps.setInt(7, idAlmacen);
             
-            filAfectadas = cs.executeUpdate();
+            filaAfectada = ps.executeUpdate();
+            System.out.println("Afectado: "+filaAfectada);
+            
         } catch (Exception e) {
+            e.printStackTrace();
         }
-        return filAfectadas;  
+        return filaAfectada;  
     }
     public void deleteAlmacen(Integer idAlmacen){
         try{
@@ -96,6 +99,7 @@ public class AlmacenDAO {
         }catch(Exception e){
             e.printStackTrace();
         }
+        
     }
     
     /*public int deleteAlmacen(Integer idAlmacen){
