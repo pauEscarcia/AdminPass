@@ -68,6 +68,7 @@ public class ControladorLogin implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+        //falta decifrar 
         if (e.getSource() == vistaLoc.btnOk){
             String masterKeyInput = vistaLoc.txtKeyss.getText();
             ValidarMasterKey( masterKeyInput);
