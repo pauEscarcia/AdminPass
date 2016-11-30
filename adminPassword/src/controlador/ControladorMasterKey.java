@@ -51,7 +51,7 @@ public class ControladorMasterKey implements ActionListener {
                     JOptionPane.showMessageDialog(null,"Ingresa la contraseña");
                 }else{
                     try {
-                        cKeyss = en.encrypt(keyss, keyss);
+                        cKeyss = en.encrypt(keyss,"Hola");
                     } catch (Exception ex) {
                         Logger.getLogger(ControladorMasterKey.class.getName()).log(Level.SEVERE, null, ex);
                     }
