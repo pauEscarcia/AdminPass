@@ -179,7 +179,5 @@ public class ControladorLogin implements ActionListener {
             vistaC.setLocationRelativeTo(null);
         }
         
-    }
-
-   
+    }  
 }
