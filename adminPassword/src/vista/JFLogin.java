@@ -37,7 +37,6 @@ public class JFLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtKeyss = new javax.swing.JPasswordField();
         btnCrear = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         btnOk = new javax.swing.JButton();
         chboxRevelar = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
@@ -70,19 +69,6 @@ public class JFLogin extends javax.swing.JFrame {
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearActionPerformed(evt);
-            }
-        });
-
-        btnCancelar.setBackground(new java.awt.Color(208, 109, 127));
-        btnCancelar.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(72, 55, 71));
-        btnCancelar.setText("Cancelar");
-        btnCancelar.setMaximumSize(new java.awt.Dimension(103, 33));
-        btnCancelar.setMinimumSize(new java.awt.Dimension(103, 33));
-        btnCancelar.setPreferredSize(new java.awt.Dimension(103, 33));
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
             }
         });
 
@@ -120,9 +106,7 @@ public class JFLogin extends javax.swing.JFrame {
                         .addComponent(chboxRevelar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(154, 154, 154)
                         .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -137,8 +121,7 @@ public class JFLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnOk, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                    .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -202,13 +185,6 @@ public class JFLogin extends javax.swing.JFrame {
   //      dispose();
         
     }//GEN-LAST:event_btnOkActionPerformed
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
-    //    login l1 = new login();
-    //    l1.setVisible(true);
-    //    dispose();
-    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtKeyssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKeyssActionPerformed
         // TODO add your handling code here:
@@ -276,7 +252,6 @@ public class JFLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnCrear;
     public javax.swing.JButton btnOk;
     public javax.swing.JCheckBox chboxRevelar;

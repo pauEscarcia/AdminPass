@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.AlmacenDAO;
 import modelo.LogDAO;
+import vista.JFInicio;
 import vista.JFLocket;
 import vista.JFLogin;
 import vista.JFMasterKey;
@@ -33,6 +34,7 @@ public class ControladorLogin implements ActionListener {
         this.vistaLoc = vistaLoc;
         this.vistaLoc.btnCrear.addActionListener(this);
         this.vistaLoc.btnOk.addActionListener(this);
+        
     }
     public ControladorLogin(){
     
@@ -152,6 +154,7 @@ public class ControladorLogin implements ActionListener {
             vistaC.setVisible(true);
             vistaC.setLocationRelativeTo(null);
         }
+        
         
     }  
 }
