@@ -106,7 +106,7 @@ public class ControladorLocket implements ActionListener {
         //System.out.println("pass2"+pass2);
         System.out.println("url"+url);
         System.out.println("expira"+expira);
-        if(titulo.isEmpty() && usuario.isEmpty() && pass.isEmpty()&& url.isEmpty()&&expira.isEmpty())
+        if(titulo.isEmpty() && usuario.isEmpty()&& url.isEmpty())
         {
             JOptionPane.showMessageDialog(null,"Error! Ingresa valores ");
            validador=1;
