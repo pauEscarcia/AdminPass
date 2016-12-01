@@ -103,18 +103,18 @@ public class ControladorLocket implements ActionListener {
         JOptionPane.showMessageDialog(frame, "¡Contraseña copiada al portapapeles! ");
     }
      
-    public int  validarEdicion(String titulo,String usuario, String pass, String url, String expira){
+    public int  validarEdicion(String titulo,String usuario, String pass, String pass2, String url, String expira){
         int validador;
         System.out.println("titulo"+titulo);
         System.out.println("usuario"+usuario);
         System.out.println("pass"+pass);
-        //System.out.println("pass2"+pass2);
+        System.out.println("pass2"+pass2);
         System.out.println("url"+url);
         System.out.println("expira"+expira);
         if(titulo.isEmpty() && usuario.isEmpty()&& url.isEmpty())
         {
             JOptionPane.showMessageDialog(null,"Error! Ingresa valores ");
-           validador=1;
+            validador=1;
         }
         else {
             validador=0;
@@ -126,14 +126,14 @@ public class ControladorLocket implements ActionListener {
         }else{
              validador=0;
         }
-        /*
+        
         if(!pass.equals(pass2)){
             JOptionPane.showMessageDialog(null,"Error! Ingresa los password correctamente");
             validador = 1;
         }else{
             validador = 0;
         }
-        */
+       
         
         return validador;
     }
@@ -225,6 +225,10 @@ public class ControladorLocket implements ActionListener {
             String pass2 = null;
             String url = null;
             String expira = null;
+            String titNoCipher = null;
+            String usuarioNoCipher = null;
+            String urlNoCipher = null;
+            String expiraNoCipher = null;
             
             try {
                 titulo = en.encrypt(vistaLoc.txtTitulo.getText(), idKey);
@@ -237,14 +241,19 @@ public class ControladorLocket implements ActionListener {
                 Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
             }
             int idAlmacen=   (int) vistaLoc.tabla.getValueAt(filaEditar, 5);
+            titNoCipher = vistaLoc.txtTitulo.getText();
+            usuarioNoCipher = vistaLoc.txtUsuario.getText();
+            urlNoCipher = vistaLoc.txtURL.getText();
+            expiraNoCipher = vistaLoc.comboExpira.getSelectedItem().toString();
             pass2 = vistaLoc.txtPass2.getText();
             passNoCipher = vistaLoc.txtPass.getText();
+            
             
 
             int rptEdit = modeloLoc.editAlmacen(idAlmacen,titulo, usuario, pass, url, expira,idKey);
             if(rptEdit>0){
                 LimpiarCampos();
-                int validacion = validarEdicion(titulo, usuario, pass, url, expira);
+                int validacion = validarEdicion(titNoCipher, usuarioNoCipher, passNoCipher, pass2, urlNoCipher, expiraNoCipher);
                 System.out.println("validacion"+validacion);
                 if(validacion==0){   
                      JOptionPane.showMessageDialog(null, "Edicion exitosa.");
