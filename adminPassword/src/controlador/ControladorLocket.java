@@ -46,6 +46,11 @@ public class ControladorLocket implements ActionListener {
         this.vistaLoc.btnEliminar.addActionListener(this);
         this.vistaLoc.btnOk.addActionListener(this);
         this.idKey = idKey;
+        try {
+                LlenarTabla(vistaLoc.tabla);
+            } catch (Exception ex) {
+                Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
      public void ControladorLocket(){
     
@@ -166,6 +171,17 @@ public class ControladorLocket implements ActionListener {
                 String rptaRegistro = modeloLoc.insertAlmacen(tituloC,usuarioC,passC,urlC,expiraC,idKey);
                 if (rptaRegistro!= null){
                     JOptionPane.showMessageDialog(null,rptaRegistro);
+                    vistaLoc.txtTitulo.setText(null);
+                    vistaLoc.txtPass.setText(null);
+                    vistaLoc.txtPass2.setText(null);
+                    vistaLoc.txtURL.setText(null);
+                    vistaLoc.txtUsuario.setText(null);
+                    try {
+                        LlenarTabla(vistaLoc.tabla);
+                    } catch (Exception ex) {
+                        Logger.getLogger(ControladorLocket.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
                 }else {
                     JOptionPane.showMessageDialog(null,"Error de Registro");
                 }
