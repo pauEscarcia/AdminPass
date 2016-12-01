@@ -82,7 +82,6 @@ public class ControladorLogin implements ActionListener {
            String lista;
            int posicion=0;
            
-           
                for (int i = 0; i <numRegTotEncr; i++) {
                    try {
                         listDesencriptada.add(i, de.decrypt(modeloLoc.listLog().get(i).getKey(), hola));
@@ -135,7 +134,6 @@ public class ControladorLogin implements ActionListener {
               }
                if(encontrado.size()==0){
                     JOptionPane.showMessageDialog(null, "Contraseña Incorrecta ", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-
                }      
     }
 
@@ -145,8 +143,6 @@ public class ControladorLogin implements ActionListener {
             String masterKeyInput = vistaLoc.txtKeyss.getText();
             //ValidarMasterKey( masterKeyInput);
             ValidarMasterKeyDesencriptar( masterKeyInput);
-            
-           
         }
         if (e.getSource() == vistaLoc.btnCrear){
             JFMasterKey vistaC = new JFMasterKey();
