@@ -11,12 +11,12 @@ import adminpassword.*;
  *
  * @author Exelsion
  */
-public class Inicio extends javax.swing.JFrame {
+public class JFInicio extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    public Inicio() {
+    public JFInicio() {
         initComponents();
     }
 
@@ -30,60 +30,60 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnBienvenido = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Locket Bienvenido");
 
         jPanel1.setBackground(new java.awt.Color(255, 253, 215));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setInheritsPopupMenu(true);
         jPanel1.setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(208, 109, 127));
-        jButton1.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Ingresar");
-        jButton1.setMaximumSize(new java.awt.Dimension(240, 240));
-        jButton1.setMinimumSize(new java.awt.Dimension(240, 240));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBienvenido.setBackground(new java.awt.Color(208, 109, 127));
+        btnBienvenido.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
+        btnBienvenido.setForeground(new java.awt.Color(255, 204, 204));
+        btnBienvenido.setText("Ingresar");
+        btnBienvenido.setMaximumSize(new java.awt.Dimension(240, 240));
+        btnBienvenido.setMinimumSize(new java.awt.Dimension(240, 240));
+        btnBienvenido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBienvenidoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(270, 420, 260, 80);
+        jPanel1.add(btnBienvenido);
+        btnBienvenido.setBounds(270, 420, 260, 80);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LocketO10.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(170, 37, 480, 330);
+        jLabel1.setBounds(170, 60, 480, 330);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgPink.png"))); // NOI18N
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(0, -340, 800, 1290);
+        jLabel3.setBounds(0, 0, 800, 610);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-//        login l1 = new login();
-//        l1.setVisible(true);
-//        dispose();
+    private void btnBienvenidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBienvenidoActionPerformed
+
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBienvenidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,14 +102,18 @@ public class Inicio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -118,13 +122,13 @@ public class Inicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                new JFInicio().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btnBienvenido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

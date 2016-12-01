@@ -12,15 +12,15 @@ import java.awt.event.ItemEvent;
  *
  * @author Exelsion
  */
-public class JFMasterKey extends javax.swing.JFrame {
+public class JFLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form MasterKey
      */
-    public JFMasterKey() {
+    public JFLogin() {
         initComponents();
         this.txtKeyss.setText((""));
-        this.txtKeyss2.setText((""));
+        //this.txtKeyss2.setText((""));
     }
 
     /**
@@ -35,30 +35,26 @@ public class JFMasterKey extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         txtKeyss = new javax.swing.JPasswordField();
-        txtKeyss2 = new javax.swing.JPasswordField();
-        btnGenerar = new javax.swing.JButton();
+        btnCrear = new javax.swing.JButton();
         btnOk = new javax.swing.JButton();
         chboxRevelar = new javax.swing.JCheckBox();
+        jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Crear masterKey");
+        setTitle("Acceso a locket");
 
         jPanel1.setBackground(new java.awt.Color(255, 253, 215));
 
         jPanel2.setBackground(new java.awt.Color(255, 253, 215));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Crear master key", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Existence Light", 0, 14), new java.awt.Color(72, 55, 71))); // NOI18N
-        jPanel2.setToolTipText("Bienvenido a locket por favor ingresa tu master key (:");
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inserta la llave maestra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Existence Light", 0, 14), new java.awt.Color(72, 55, 71))); // NOI18N
+        jPanel2.setToolTipText("Crea la llave maestra");
         jPanel2.setName("Crea la llave maestra"); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
         jLabel3.setText("Ingresa la contraseña");
-
-        jLabel4.setFont(new java.awt.Font("Existence Light", 0, 18)); // NOI18N
-        jLabel4.setText("Repite la contraseña");
 
         txtKeyss.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,27 +62,20 @@ public class JFMasterKey extends javax.swing.JFrame {
             }
         });
 
-        txtKeyss2.setText("jPasswordField2");
-        txtKeyss2.addActionListener(new java.awt.event.ActionListener() {
+        btnCrear.setBackground(new java.awt.Color(208, 109, 127));
+        btnCrear.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
+        btnCrear.setForeground(new java.awt.Color(72, 55, 71));
+        btnCrear.setText("crear");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtKeyss2ActionPerformed(evt);
-            }
-        });
-
-        btnGenerar.setBackground(new java.awt.Color(208, 109, 127));
-        btnGenerar.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
-        btnGenerar.setForeground(new java.awt.Color(72, 55, 71));
-        btnGenerar.setText("generar");
-        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerarActionPerformed(evt);
+                btnCrearActionPerformed(evt);
             }
         });
 
         btnOk.setBackground(new java.awt.Color(208, 109, 127));
         btnOk.setFont(new java.awt.Font("Glamourgirl", 0, 24)); // NOI18N
         btnOk.setForeground(new java.awt.Color(72, 55, 71));
-        btnOk.setText("OK!");
+        btnOk.setText("Ok !");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkActionPerformed(evt);
@@ -108,21 +97,16 @@ public class JFMasterKey extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtKeyss, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                            .addComponent(txtKeyss2))
+                        .addComponent(txtKeyss, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(chboxRevelar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(154, 154, 154)
                         .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -134,21 +118,19 @@ public class JFMasterKey extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtKeyss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chboxRevelar))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtKeyss2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGenerar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnOk, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                    .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
                 .addContainerGap())
         );
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/keyIcon_1.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Glamourgirl", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(72, 55, 71));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("CRear MAsterkey");
+        jLabel2.setText("Acceso");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/generalBG.png"))); // NOI18N
 
@@ -158,7 +140,11 @@ public class JFMasterKey extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(170, 170, 170)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -167,9 +153,13 @@ public class JFMasterKey extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(110, 110, 110)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel1)
         );
@@ -200,13 +190,13 @@ public class JFMasterKey extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtKeyssActionPerformed
 
-    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
         //this.txtKeyss.setText("kL9P]K>z*]mJCd");
         //this.txtKeyss2.setText("kL9P]K>z*]mJCd");
        
         
-    }//GEN-LAST:event_btnGenerarActionPerformed
+    }//GEN-LAST:event_btnCrearActionPerformed
 
     private void chboxRevelarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chboxRevelarItemStateChanged
         // TODO add your handling code here:
@@ -217,15 +207,11 @@ public class JFMasterKey extends javax.swing.JFrame {
         }
         
         if (evt.getStateChange() == ItemEvent.SELECTED){
-            this.txtKeyss2.setEchoChar('*');
+            //this.txtKeyss2.setEchoChar('*');
         }else{
-            this.txtKeyss2.setEchoChar((char)0);
+            //this.txtKeyss2.setEchoChar((char)0);
         }
     }//GEN-LAST:event_chboxRevelarItemStateChanged
-
-    private void txtKeyss2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKeyss2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtKeyss2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,36 +230,37 @@ public class JFMasterKey extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFMasterKey.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFMasterKey.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFMasterKey.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFMasterKey.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFMasterKey().setVisible(true);
+                new JFLogin().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnGenerar;
+    public javax.swing.JButton btnCrear;
     public javax.swing.JButton btnOk;
     public javax.swing.JCheckBox chboxRevelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPasswordField txtKeyss;
-    public javax.swing.JPasswordField txtKeyss2;
     // End of variables declaration//GEN-END:variables
 }
